@@ -8,7 +8,7 @@
 <% (0..fetch(:delayed_job_workers) - 1).each do |worker_id| %>
 check process delayed_job_<%= worker_id %>
   with pidfile <%= shared_path.join('tmp/pids') %>/delayed_job.<%= worker_id %>.pid
-  start program = "/bin/su - <%= deploy_user %> -c '<%= delayed_job_command %> start -i <%= worker_id %>'"
-  stop program = "/bin/su - <%= deploy_user %> -c '<%= delayed_job_command %> stop -i <%= worker_id %>'"
+  start program = "/bin/su - <%= deploy_user %> -c '<%= delayed_job_command('start', '-i', worker_id) %>'"
+  stop program = "/bin/su - <%= deploy_user %> -c '<%= delayed_job_command('stop', '-i', worker_id) %>'"
   group delayed_job
 <% end %>
