@@ -9,6 +9,7 @@ namespace :load do
     set :delayed_job_workers, 1
     set :delayed_job_service, -> { "delayed_job_#{fetch(:application)}_#{fetch(:stage)}" }
     set :delayed_job_monit_enabled, false
+    set :delayed_job_monit_dir, '/etc/monit/conf.d'
 
     set :delayed_job_server_roles, [:app]
   end

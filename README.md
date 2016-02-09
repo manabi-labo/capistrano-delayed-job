@@ -81,6 +81,9 @@ OS. In order to use this setting, install monit on roles that run DelayedJob and
 start monit's httpd server. See [here](http://mmonit.com/monit/documentation/monit.html#MONIT-HTTPD)
 for instructions.
 
+* `set :delayed_job_monit_dir, '/etc/monit/conf.d'` <br/>
+The path of monit configuration directory.
+
 ### Template customization
 
 If you want to change default templates, you can generate them using
